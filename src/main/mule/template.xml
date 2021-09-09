@@ -15,13 +15,22 @@
 
     <http-policy:proxy name="{{{policyId}}}-custom-policy">
         <http-policy:source>
-            {{#if evaluateInRequest}}
-                <logger level="INFO" doc:name="RequestLogger" message="{{{requestMessage}}}"/>
+            {{#if evaluateInListenerRequest}}
+                <logger level="INFO" doc:name="RequestLogger" message="{{{listenerRequestMessage}}}"/>
             {{/if}}
             <http-policy:execute-next/>
-            {{#if evaluateInResponse}}
-                <logger level="INFO" doc:name="ResponseLogger" message="{{{responseMessage}}}"/>
+            {{#if evaluateInListenerResponse}}
+                <logger level="INFO" doc:name="ResponseLogger" message="{{{listenerResponseMessage}}}"/>
             {{/if}}
         </http-policy:source>
+        <http-policy:operation>
+            {{#if evaluateInRequesterRequest}}
+                <logger level="INFO" doc:name="RequestLogger" message="{{{requesterRequestMessage}}}"/>
+            {{/if}}
+            <http-policy:execute-next/>
+            {{#if evaluateInRequesterResponse}}
+                <logger level="INFO" doc:name="ResponseLogger" message="{{{requesterResponseMessage}}}"/>
+            {{/if}}
+        </http-policy:operation>
     </http-policy:proxy>
 </mule>

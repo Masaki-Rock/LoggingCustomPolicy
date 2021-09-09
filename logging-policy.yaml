@@ -1,7 +1,7 @@
 id: logging-policy
 name: Custom Logging Policy
 description: 任意のログを出力できるカスタムポリシー
-category: Custom
+category: Troubleshooting
 type: custom
 resourceLevelSupported: true
 encryptionSupported: false
@@ -9,33 +9,63 @@ standalone: true
 requiredCharacteristics: []
 providedCharacteristics: []
 configuration: 
-   - propertyName: evaluateInRequest
+   - propertyName: evaluateInListenerRequest
      name: リクエスト受信時のログ出力設定
      description: リクエスト受信時にログを出力する場合はチェックする。
      type: boolean
      optional: true
      defaultValue: false
-   - propertyName: requestMessage
+   - propertyName: listenerRequestMessage
      name: リクエスト受信時のログメッセージ
      description: リクエスト受信時に出力するログ内容を設定する。
      type: expression
      optional: true
      sensitive: false
      allowMultiple: false
-     dependsOnKey: evaluateInRequest
+     dependsOnKey: evaluateInListenerRequest
      dependsOnValue: true
-   - propertyName: evaluateInResponse
+   - propertyName: evaluateInListenerResponse
      name: レスポンス返却時のログ出力設定
      description: レスポンス返却時にログを出力する場合はチェックする。
      type: boolean
      optional: true
      defaultValue: false
-   - propertyName: responseMessage
+   - propertyName: listenerResponseMessage
      name: レスポンス返却時の出力ログ
      description: レスポンス返却時に出力するログ内容を設定する。
      type: expression
      optional: true
      sensitive: false
      allowMultiple: false
-     dependsOnKey: evaluateInResponse
+     dependsOnKey: evaluateInListenerResponse
+     dependsOnValue: true
+   - propertyName: evaluateInRequesterRequest
+     name: HTTPリクエスターのリクエスト送信時のログ出力設定
+     description: HTTPリクエスターのリクエスト送信時にログを出力する場合はチェックする。
+     type: boolean
+     optional: true
+     defaultValue: false
+   - propertyName: requesterRequestMessage
+     name: HTTPリクエスターのリクエスト送信時のログメッセージ
+     description: HTTPリクエスターのリクエスト送信時に出力するログ内容を設定する。
+     type: expression
+     optional: true
+     sensitive: false
+     allowMultiple: false
+     dependsOnKey: evaluateInRequesterRequest
+     dependsOnValue: true
+   - propertyName: evaluateInRequesterResponse
+     name: HTTPリクエスターのレスポンス受信時のログ出力設定
+     description: HTTPリクエスターのレスポンス受信時にログを出力する場合はチェックする。
+     type: boolean
+     optional: true
+     defaultValue: false
+   - propertyName: requesterResponseMessage
+     name: レスポンス返却時の出力ログ
+     description: HTTPリクエスターのレスポンス受信時に出力するログ内容を設定する。
+     type: expression
+     optional: true
+     sensitive: false
+     allowMultiple: false
+     dependsOnKey: evaluateInRequesterResponse
      dependsOnValue: true

@@ -4,18 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>{Mule_Group_Id}</groupId>
+    <groupId>{bussiness-gropup-Id}</groupId>
     <artifactId>logging-policy</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
-    <name>カスタムログポリシー</name>
+    <name>ログ出力ポリシー</name>
     <description>任意のログを出力できるカスタムポリシー</description>
 
     <packaging>mule-policy</packaging>
 
     <properties>
         <mule.maven.plugin.version>3.3.6</mule.maven.plugin.version>
-        <exchange.url>https://maven.anypoint.mulesoft.com/api/v1/organizations/{Mule_Organization_Id}/maven</exchange.url>
+        <exchange.url>https://maven.anypoint.mulesoft.com/api/v1/organizations/{bussiness-gropup-Id}/maven</exchange.url>
         <http.policy.transform.extension>3.1.0</http.policy.transform.extension>
     </properties>
 
