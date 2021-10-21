@@ -22,6 +22,7 @@ configuration:
      optional: true
      sensitive: false
      allowMultiple: false
+     defaultValue: "#[%dw 2.0 output application/json --- {'Title': 'Listener Request Log.','X-Forwarded-For': attributes.headers['X-Forwarded-For'], 'X-Correlation-ID': attributes.headers['X-Correlation-ID'], 'jwt': attributes.headers['jwt'] }]"
      dependsOnKey: evaluateInListenerRequest
      dependsOnValue: true
    - propertyName: evaluateInListenerResponse
@@ -37,6 +38,7 @@ configuration:
      optional: true
      sensitive: false
      allowMultiple: false
+     defaultValue: "#[%dw 2.0 output application/json --- { 'Title': 'Listener Response Log.', 'StatusCode': attributes.statusCode, 'ReasonPhrase': attributes.reasonPhrase}]"
      dependsOnKey: evaluateInListenerResponse
      dependsOnValue: true
    - propertyName: evaluateInRequesterRequest
@@ -52,6 +54,7 @@ configuration:
      optional: true
      sensitive: false
      allowMultiple: false
+     defaultValue: "#[%dw 2.0 output application/json --- { 'Title': 'Requester Request Log.', 'X-Forwarded-For': attributes.headers['X-Forwarded-For'], 'X-Correlation-ID': attributes.headers['X-Correlation-ID'], 'jwt': attributes.headers['jwt'] }]"
      dependsOnKey: evaluateInRequesterRequest
      dependsOnValue: true
    - propertyName: evaluateInRequesterResponse
@@ -67,5 +70,6 @@ configuration:
      optional: true
      sensitive: false
      allowMultiple: false
+     defaultValue: "#[%dw 2.0 output application/json --- { 'Title': 'Requester Response Log.', 'StatusCode': attributes.statusCode, 'ReasonPhrase': attributes.reasonPhrase, }]"
      dependsOnKey: evaluateInRequesterResponse
      dependsOnValue: true

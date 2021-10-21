@@ -6,7 +6,7 @@
 
     <groupId>{bussiness-gropup-Id}</groupId>
     <artifactId>logging-policy</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
 
     <name>ログ出力ポリシー</name>
     <description>任意のログを出力できるカスタムポリシー</description>
